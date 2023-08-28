@@ -1,0 +1,184 @@
+/* @group Globals - Text Resets
+===================================== */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, ins, kbd, q, s, samp,
+small, strike, strong, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+	background: transparent;
+	}
+
+body { line-height: 1; }
+
+sup, sub {line-height:0;}
+
+a img { border: none; }
+
+/* @end Globals - Text Resets
+-------------------------------- */
+
+/* @group Globals - Lists (OL, UL)
+===================================== */
+
+ul { margin: 0 0 1em 4em; }
+
+ol { margin-left: 5em; }
+
+p + ul, p + ol { margin-top: -0.5em; } /* get lists below paragraphs closer to the paragraph */
+
+li ul, li ol { margin-top: .5em; margin-bottom: .75em; } /* lists inside of LI's need room to breathe on top and don't need as much space on bottom */
+
+li { margin: 0 0 .5em; }
+
+/* change bullet style when nesting lists */
+ul { list-style: disc; }
+ul ul { list-style: circle; }
+ul ul ul { list-style: square; }
+ol { list-style: decimal; }
+ol ol, ol.alpha { list-style: lower-alpha; } /* ol.alpha is optional in fckeditor */
+ol ol ol { list-style: lower-roman; }
+
+/* @end Globals - Lists (OL, UL)
+-------------------------------- */
+
+
+/* @group Globals - Definition Lists (DL)
+===================================== */
+
+dl { 
+	clear: both;
+	margin-bottom: 1em;
+	}
+
+dt {
+	margin: 0 0 .5em;
+	line-height: 1;
+	font-weight: bold;
+	}
+
+dt a { text-decoration: none; }
+
+dd {
+	margin: 0 0 .5em;
+	padding: 0;
+	line-height: 1.2;
+	}
+
+dd p {
+	margin: 0 0 .5em;
+	padding: 0;
+	}
+
+
+/* @end Globals - Definition Lists (DL)
+-------------------------------- */
+
+
+/* @group Globals - Tables
+===================================== */
+
+table { /* tables still need 'cellspacing="0"' in the markup? */
+	border-collapse: collapse;
+	border-spacing: 0;
+	}
+
+caption {
+	font-weight: normal;
+	text-align: left;
+	}
+
+th {
+	padding: .5em;
+	border: 1px solid;
+	font-weight: bold;
+	text-align: left;
+	vertical-align: top;
+	}
+
+td {
+	padding: .5em;
+	line-height: 1.2;
+	vertical-align: top;
+	}
+
+/* @end Globals - Tables
+-------------------------------- */
+
+
+/* @group Globals - Forms
+===================================== */
+
+form { margin-bottom: 2em; }
+
+form ul, form ol { margin: 0; }
+
+fieldset ol { padding-top: 15px; }
+
+form li {
+	clear: both;
+	width: 100%;
+	margin-bottom: 1em;
+	list-style: none;
+	}
+
+fieldset {
+	clear: both;
+	margin: 0 0 2em;
+	padding: 0 15px .5em;
+	}
+
+legend {
+	margin-left: -10px;
+	padding: 0 10px;
+	font-size: 1.4em;
+	line-height: 1.2;
+	font-weight: normal;
+	}
+
+label, p.fieldLabel {
+	float: left;
+	width: 25%;
+	margin-right: 2%;
+	padding-right: 7px;
+	font-weight: bold;
+	line-height: 1.4;
+	text-align: right;
+}
+
+.multiInputs {
+	float: left;
+	width: 65%;
+	}
+
+.inputNote {
+	font-size: .9em;
+	color: #777;
+	}
+
+form li span { font-weight: normal; }
+
+fieldset input.text { width: 70%; }
+
+fieldset textarea {
+	width: 70%;
+	height: 10em;
+	}
+
+form .buttons { text-align: right; }
+
+button, .buttons input { cursor: pointer; }
+input[type='submit'] { cursor: pointer; }
+
+/* prevent Fx <= 3.5 from showing hidden inputs when some properties are set. See: Bugzilla id# 436046 & 501959 */
+input[type='hidden'] { display: none !important; }

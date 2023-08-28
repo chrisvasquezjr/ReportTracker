@@ -1,0 +1,838 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #E4E4E4;
+    transition: transform 0.8s ease;
+}
+
+    body.show-nav .overlay {
+        width: 100%;
+        z-index: 111;
+    }
+
+.submit {
+    font-size: 14px;
+    font-weight: 700;
+    padding: 12px 30px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    color: #fff;
+    border: 1px solid transparent;
+    background-color: #96C11F;
+    cursor: pointer;
+}
+
+    .submit.hide {
+        display: none;
+    }
+
+.container {
+    position: relative;
+    max-width: 1400px;
+    width: 100%;
+    display: flex;
+    margin: 0 auto;
+}
+
+.reporting-ui {
+    width: 95%;
+    flex-basis: 1 0 95%;
+}
+/*showing up the sidebar there*/
+.overlay {
+    min-width: 40px;
+    width: 72px;
+    flex-basis: 0 0 72px;
+    font-size: 1rem;
+    z-index: 10;
+    color: #fff;
+    background-color: #1FABC2;
+}
+
+.menu-close {
+    display: none;
+}
+
+body.show-nav .overlay .icons .icon a {
+    cursor: pointer;
+    display: inline-block;
+    width: 72px;
+    height: 72px;
+}
+
+    body.show-nav .overlay .icons .icon a img {
+        cursor: pointer;
+        width: 100%;
+        height: 100%;
+    }
+
+.overlay .icons {
+    padding: 60px 0px;
+    list-style-type: none;
+    margin: 0;
+}
+
+.icons .icon {
+    display: flex;
+    justify-content: center;
+}
+
+body .overlay .icons .icon a {
+    cursor: pointer;
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+}
+
+    body .overlay .icons .icon a img {
+        cursor: pointer;
+        width: 100%;
+        height: 100%;
+    }
+
+.header {
+    position: relative;
+    display: flex;
+    background-color: #162638;
+    justify-content: center;
+    align-items: center;
+    z-index: 9;
+}
+
+    .header h1 {
+        display: flex;
+        align-items: flex-end;
+        text-align: center;
+        font: italic normal bold 3rem Open Sans;
+        letter-spacing: -1.52px;
+        color: #96C11F;
+        opacity: 1;
+        text-transform: uppercase;
+        margin-right: 30px;
+    }
+
+    .header .pb-os {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        align-items: flex-end;
+        /*    align-self: flex-end;*/
+    }
+
+    .header .pb-outsolve .menu-bar {
+        display: none;
+    }
+
+.pb-outsolve p {
+    /* UI Properties */
+    font: italic normal bold 0.9375rem/0.75rem Open Sans;
+    letter-spacing: -0.5px;
+    color: #FFFFFF;
+    opacity: 1;
+    margin-right: 5px;
+}
+
+.pb-outsolve h3 {
+    /* UI Properties */
+    opacity: 1;
+    color: #ffffff;
+    font: normal bold 1.875rem/1.25rem Open Sans;
+}
+
+.calendar {
+    font-size: 1rem;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+}
+
+    .calendar input {
+        width: 100px;
+        height: 32px;
+        padding: 10px;
+        text-align: center;
+    }
+
+.title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+    font: italic normal bold 1.125rem/1.56rem Open Sans;
+    letter-spacing: -0.88px;
+    color: #162638;
+}
+
+    .title h3 {
+        padding: 0 10px;
+    }
+
+    .title span {
+        cursor: pointer;
+    }
+
+.new-report {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    margin: 0 auto;
+    background-image: linear-gradient(to bottom, #ffffff, #e4e4e4);
+}
+
+.progressbar {
+    position: relative;
+    display: flex;
+    width: 80%;
+    justify-content: space-between;
+    margin: 1rem 0 3rem 0;
+    counter-reset: step;
+}
+
+    .progressbar::before, .progress {
+        position: absolute;
+        content: "";
+        background-color: #EEEEEE;
+        height: 41px;
+        width: 98%;
+        border-radius: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        margin: 0 10px;
+    }
+
+.progress-step.active:before, .progress-step.error:before {
+    content: "L";
+    font-family: arial;
+    -ms-transform: scaleX(-1) rotate(-35deg); /* IE 9 */
+    -webkit-transform: scaleX(-1) rotate(-35deg); /* Chrome, Safari, Opera */
+    transform: scaleX(-1) rotate(-35deg);
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+/*run the design when progress bar turn red starts here*/
+.error .progress-step:not(.error):before {
+    content: "!";
+    color: #ffffff;
+    font-size: 1.8rem;
+}
+
+.error .progress-step:not(.error) {
+    background-color: #C21F1F;
+}
+/*run the design when progress bar turn red ends here*/
+.progress-step {
+    background-color: #EEEEEE;
+    height: 58px;
+    width: 58px;
+    border-radius: 222222px;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.4rem;
+    font-weight: bold;
+    z-index: 12;
+}
+
+    .progress-step:before {
+        counter-increment: step;
+        content: counter(step);
+        z-index: 1;
+        /*position: absolute;*/
+    }
+
+    .progress-step::after {
+        content: attr(data-title);
+        position: absolute;
+        top: calc(100% + 0.5rem);
+        font-size: 1.2rem;
+        color: #333;
+    }
+
+    .progress-step.active {
+        color: #ffffff;
+        background-color: #1FABC2;
+    }
+
+    .progress-step.error {
+        color: #ffffff;
+        background-color: #C21F1F;
+    }
+
+
+.progress {
+    background-color: #1FABC2;
+    width: 0%;
+    transition: 0.3s ease-in-out;
+}
+
+    .progress.error {
+        background-color: #C21F1F !important;
+    }
+
+.step-wizard:first-of-type {
+    margin-top: 0 !important;
+}
+
+.message {
+    display: none;
+    position: fixed;
+    font-size: 1.2rem;
+    top: 10%;
+    right: 1%;
+    max-width: 100%;
+    padding: 0.5rem 0.8rem;
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 9999;
+}
+
+    .message.error {
+        display: block;
+        color: #721c24;
+        background-color: #f8d7da;
+        border: 1px solid #dc3545;
+    }
+
+    .message.success {
+        display: block;
+        color: #155724;
+        background-color: #d4edda;
+        border: 1px solid #28a745;
+    }
+
+/*for progress bar */
+.step-wizard {
+    /* position: relative; */
+    width: 100%;
+    margin: 1rem auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 11px 6px #00000029;
+    border-radius: 0px 0px 37px 37px;
+    padding: 20px 0;
+}
+
+/*Details form design*/
+
+.details {
+    display: flex;
+    width: 80%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+    .details .heading {
+        width: 80%;
+        text-align: left;
+        display: flex;
+        align-items: center;
+        margin-left: 30px;
+    }
+
+        .details .heading h2 {
+            margin-left: 20px;
+            color: #162638;
+            font: italic normal normal 1.8rem/2.125rem Open Sans;
+        }
+
+        .details .heading span {
+            cursor: pointer;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #96C11F;
+            margin-left: -0.4rem;
+        }
+
+.form {
+    width: 80%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: stretch;
+}
+
+    .form.hide {
+        display: none;
+    }
+
+    .form .row {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        /*    flex-wrap: wrap;*/
+        justify-content: flex-start;
+        align-items: center;
+        padding: 20px 0;
+    }
+
+        .form .row span {
+            margin-left: 0;
+            background-color: #162638;
+            width: 47px;
+            height: 47px;
+            border-radius: 2222px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            z-index: 10;
+            color: #fff;
+            font-size: 1.125rem;
+            margin-right: 10px;
+        }
+
+        .form .row input {
+            width: 30%;
+            height: 35px;
+            padding: 10px;
+            /* UI Properties */
+            background: #FFFFFF 0% 0% no-repeat padding-box;
+            border: 3px solid #E4E4E4;
+        }
+
+        .form .row label {
+            width: 30%;
+            font: normal normal bold 1.125rem/1.25rem Open Sans;
+            letter-spacing: 0.84px;
+            color: #3E3E3E;
+            margin-right: 10px;
+        }
+
+    .form .right .row label {
+        width: 40%;
+        margin-right: 10px;
+        text-align: center;
+    }
+
+    .form .right .row input {
+        width: 55%;
+        height: 100%;
+    }
+
+    .form .right {
+        /*
+        width: 45%;
+        flex: 1;
+*/
+        display: flex;
+        flex-direction: column;
+    }
+
+.right .row.textarea {
+    flex-grow: 1;
+    align-items: start;
+}
+
+#textarea {
+    height: 100%;
+    border: 3px solid #E4E4E4;
+    padding: 2px;
+    font-size: 1rem;
+}
+
+textarea#text {
+    width: 55%;
+    height: 100%;
+    border: 3px solid #E4E4E4;
+    padding: 2px;
+    font-size: 1rem;
+}
+
+.new-report-btn {
+    padding: 30px 0;
+    text-align: center;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 64%;
+    margin: 0 auto;
+}
+
+    .new-report-btn span {
+        cursor: pointer;
+        font-size: 1.875rem;
+        border-radius: 22222px;
+    }
+
+    .new-report-btn h2 {
+        font: italic normal 600 1.8rem/2.4rem Open Sans;
+        letter-spacing: -0.72px;
+        color: #162638;
+        margin-left: 10px;
+    }
+
+body.show-nav .overlay {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+#ui-datepicker-div.ui-datepicker.ui-widget.ui-widget-content.ui-helper-clearfix.ui-corner-all {
+    z-index: 222232 !important;
+}
+
+#datepicker .ui-datepicker-calendar {
+    display: none;
+}
+
+.custom-datepicker .ui-datepicker-calendar {
+    display: none;
+}
+
+.custom-datepicker .ui-datepicker-month {
+    display: none;
+}
+
+.custom-datepicker .ui-datepicker-prev {
+    display: none;
+}
+
+.custom-datepicker .ui-datepicker-next {
+    display: none;
+}
+
+/*.custom-datepicker .ui-datepicker-calendar {
+    display: none;
+}
+
+.custom-datepicker .ui-datepicker-header {
+    display: none;
+}*/
+
+@media only screen and (max-width:500px) {
+    html, body {
+        font-size: 62.5%;
+    }
+
+    .container {
+        /*        padding: 0 20px;*/
+    }
+
+    body.show-nav .overlay {
+        position: absolute;
+        top: 0;
+        display: block;
+        opacity: 1;
+        /*
+        opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+*/
+    }
+
+    .reporting-ui {
+        width: 100%;
+        flex-basis: 1 0 95%;
+    }
+
+    body.show-nav .overlay .menu-close {
+        width: 90%;
+        margin: 0 auto;
+        display: flex;
+        font-size: 3rem;
+        justify-content: space-between;
+        margin-top: 20px;
+    }
+
+        body.show-nav .overlay .menu-close .close {
+            color: #96C11F !important;
+            font-size: 3rem;
+            cursor: pointer;
+        }
+
+    body.show-nav .overlay .icons {
+        margin: 0;
+        padding: 0;
+    }
+
+        body.show-nav .overlay .icons .icon {
+            font-size: 1.8rem;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+    .overlay {
+        display: none;
+    }
+
+    .header {
+        padding: 20px 20px 10px;
+        display: block;
+    }
+
+    .rt-container .header h1 {
+        display: block;
+        text-align: right;
+        margin: 0;
+    }
+
+    .header .pb-outsolve {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+        .header .pb-outsolve .menu-bar {
+            display: inline-block;
+            color: #fff;
+            font-size: 3rem;
+        }
+
+    .pb-os p {
+        font-size: 1.2rem;
+        line-height: 1.7rem;
+    }
+
+    .pb-os h3 {
+        font-size: 2.6rem;
+        line-height: 2.7rem;
+    }
+
+    .progressbar::before, .progress {
+        height: 20px;
+        margin: 0 6px;
+    }
+
+    .progress-step.active:before {
+        font-size: 1.4rem;
+    }
+
+    .progress-step {
+        height: 30px;
+        width: 30px;
+        position: relative;
+    }
+
+        .progress-step:before {
+            font-size: 1.2rem;
+            position: absolute;
+        }
+
+        .progress-step::after {
+            font: normal normal bold 1rem Open Sans;
+            font-size: 0.8em;
+            font-weight: bold;
+            color: #333;
+            position: relative;
+        }
+
+    .details {
+        margin-top: 20px;
+    }
+
+    .form {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        /*align-items: stretch;*/
+    }
+
+        .form .left {
+            width: 100%;
+            margin-right: 10px;
+        }
+
+        .form .right {
+            width: 100%;
+        }
+
+        .form .row {
+            padding: 10px 0;
+        }
+
+            .form .row span {
+                margin-right: 5px;
+                width: 23px;
+                height: 23px;
+            }
+
+            .form .row input {
+                width: 40%;
+                height: 20px;
+            }
+
+            .form .row label {
+                width: 33%;
+                padding: 0;
+                margin-right: 10px;
+                font: normal normal bold 1.2rem Open Sans;
+            }
+
+        .form .right .row label {
+            width: 40%;
+        }
+
+        .form .right .row input, .form .right .row textarea {
+            width: 40% !important;
+            font-size: 1.3rem !important;
+        }
+
+        .form .right .row .datepicker2 {
+            height: 20px !important;
+        }
+
+    .submit {
+        padding: 6px 10px;
+        font-size: 12px;
+    }
+
+    .details .heading {
+        width: 100%;
+        margin-left: 15px;
+    }
+
+        .details .heading h2 {
+            margin-left: 10px;
+            font: italic normal normal 1.8rem/2.125rem Open Sans;
+        }
+
+        .details .heading span {
+            font-size: 1rem;
+        }
+
+    .new-report-btn {
+        width: 80%;
+        margin: 0 auto;
+    }
+}
+
+
+
+/*for medium size screens*/
+@media only screen and (min-width:500px) and (max-width:768px) {
+    html, body {
+        font-size: 87.5%;
+    }
+
+    .container {
+        /*        padding: 0 20px;*/
+    }
+
+    .overlay .icons {
+        padding: 40px 5px;
+    }
+
+    .rt-container .header h1 {
+        font-size: 2rem;
+        padding: 10px 0;
+    }
+
+    .pb-os p {
+        font-size: 0.8rem;
+        line-height: 1rem;
+    }
+
+    .pb-os h3 {
+        font-size: 1.4rem;
+        line-height: 1.2rem;
+    }
+
+    .progressbar::before, .progress {
+        height: 20px;
+        margin: 0 6px;
+    }
+
+    .progress-step.active:before {
+        font-size: 1.4rem;
+    }
+
+    .progress-step {
+        height: 36px;
+        width: 36px;
+    }
+
+        .progress-step:before {
+            font-size: 1.2rem;
+        }
+
+        .progress-step::after {
+            font: normal normal bold 1rem Open Sans;
+            font-weight: bold;
+            color: #333;
+        }
+
+    .details {
+        margin-top: 20px;
+    }
+
+        .details .heading {
+            width: 75%;
+        }
+
+    .form {
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: stretch;
+    }
+
+        .form .left {
+            width: 55%;
+            margin-right: 5px;
+        }
+
+        .form .right {
+            width: 45%;
+            flex: 1;
+        }
+
+        .form .row {
+            padding: 10px 0;
+        }
+
+            .form .row span {
+                margin-right: 10px;
+                width: 30px;
+                height: 30px;
+            }
+
+            .form .row input {
+                width: 40%;
+                height: 20px;
+            }
+
+            .form .row label {
+                width: 33%;
+                padding: 0;
+                margin-right: 10px;
+                font: normal normal bold 1rem Open Sans;
+            }
+
+        .form .right .row label {
+            width: 33%;
+        }
+
+    textarea#text {
+        width: 60%;
+    }
+
+    .form .right .row input {
+        width: 60%;
+    }
+
+    .details .heading {
+        width: 100%;
+        margin-left: 20px;
+    }
+
+        .details .heading h2 {
+            margin-left: 10px;
+            font: italic normal normal 1.6rem/2rem Open Sans;
+        }
+
+        .details .heading span {
+            font-size: 1rem;
+        }
+
+    .new-report-btn {
+        width: 80%;
+        margin: 0 auto;
+    }
+}

@@ -1,0 +1,764 @@
+@import url("reset.css");
+@import url("typography.css");
+
+/* @group GLOBALS
+===================================== */
+body, html {
+	height:100%;
+	width:100%;
+	margin:0;
+	padding:0;
+	background-color:#505050;
+	background-image:url(../images/bg.png);
+	/*overflow-x:hidden;*/
+}
+	
+* { -moz-outline: 0; }
+
+hr {
+	clear: both;
+	height: 0;
+	margin: 2em 0;
+	border: 1px solid #d2d2d2;
+	border-width: 1px 0 0;
+}
+
+a {
+	color: #000000;
+	text-decoration: underline;
+	}
+
+a:hover {
+	color:#ef3e33;
+	text-decoration: underline;
+}
+
+.plain {
+	text-decoration: none;
+	color: #505050;
+}
+
+.plain:hover {
+	color:#ef3e33;
+	text-decoration: underline;
+}
+
+.plainBlack {
+	text-decoration: none;
+	color: #000000;
+}
+
+.plainBlack:hover {
+	color:#ef3e33;
+	text-decoration: underline;
+}
+
+.plainBold {
+	font-weight: bold;
+	text-decoration: none;
+	color: #505050;
+}
+
+.plainBold:hover {
+	font-weight: bold;
+	color:#ef3e33;
+	text-decoration: underline;
+}
+
+/* Form Buttons
+===================================== */
+.submit, .buttons input, .submit input {
+	float: right;
+
+	border: none;
+	padding: 6px;
+	font-size: 11px;
+	color: #fff;
+	background: #15bddb;
+	text-align: center;
+}
+
+
+.submit:hover, .buttons:hover {
+	background-color: #000000;
+}
+
+
+/* Layout
+
+===================================== */
+#mainWrapper {
+	width: 100%;
+	min-height:100% !important;
+	height:100%;
+	background-image:url(../images/bg_fade.png);
+	background-repeat:repeat-x;
+	overflow:auto;
+}
+
+#bodyWrapper{
+	width:980px;
+	min-height:100% !important;
+	/*display:block;
+	zoom: 1;
+    *display: inline;*/
+	background-color:#fff;
+	margin:auto;
+	border-top:4px solid #ef3e33;
+	overflow:visible;
+}
+
+
+/* Header
+===================================== */
+
+#logo a{
+	background-image:url(../images/logo.png);
+	background-repeat:no-repeat;
+	width: 235px;
+	height:95px;
+	float:left;
+	margin-top:30px;
+	margin-bottom:30px;
+	display:inline-block; 
+	margin-left:40px;
+}
+
+#clientLogin a{
+	background-image:url(../images/LoginButtonOff.png);
+	background-repeat:no-repeat;
+	width: 113px;
+	height:32px;
+	float:right;
+	margin-top:60px;
+	display:inline-block; 
+	margin-right:40px;
+}
+
+#clientLogin a:hover{
+	background-image:url(../images/LoginButtonOn.png);
+	background-repeat:no-repeat;
+	width: 113px;
+	height:32px;
+	float:right; 
+	margin-top:60px;
+	display:inline-block; 
+	margin-right:40px;
+}
+
+/* Nav Primary
+===================================== */
+
+#navPrimary {
+	/*overflow: hidden;*/
+	position:relative;
+	
+	margin:0;
+	margin-left:40px;
+	padding: 0;
+	color: #313131;
+	font-size:13px;
+
+	clear:both;
+	width:900px;
+	height:32px;
+	border-top: 1px solid #d2d2d2;
+	background-image:url(../images/nav_bg.png);
+	
+	/*Set Up the Gradient for Different Browsers*/
+	
+	/* Safari 4+, Chrome 1-9 */
+   	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#d7d7d7), to(#d7d7d7));
+
+   	/* Safari 5.1+, Mobile Safari, Chrome 10+ */
+   	background-image: -webkit-linear-gradient(top, #ffffff, #d7d7d7); 
+
+   	/* Firefox 3.6+ */
+  	 background-image: -moz-linear-gradient(top, #ffffff, #d7d7d7);
+
+   	/* IE 10+ */
+   	background-image: -ms-linear-gradient(top, #ffffff, #d7d7d7);
+	
+	/* For Internet Explorer 5.5 - 7 */
+	filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=#ffffff, endColorstr=#d7d7d7);
+	
+	/* For Internet Explorer 8 */
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient (GradientType=0, startColorstr=#ffffff, endColorstr=#d7d7d7)";
+}
+
+
+#navPrimary ul, #navPrimary li{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	float: left;
+}
+
+.lineDivider{
+	float:right;
+	position:absolute;
+	
+	width: 0;
+	height: 0;
+	vertical-align: top;
+	content: "";
+	margin-left:20px;
+	color: #d2d2d2;
+}
+
+#navPrimary li a {
+	display:block;
+	padding-left:20px;
+	padding-right:20px;
+	color: #313131;
+	text-decoration: none;
+	line-height:22px;
+	padding-top:10px;
+	height:22px;
+}
+
+#navPrimary li.first {
+	padding-left:10px;
+}
+
+#navPrimary li.last a {
+	border-right: none;
+}
+
+
+#navPrimary li.last .client a{
+	margin-top:0px;
+	margin-left:6px;
+	float:right;
+	display:block;
+	zoom: 1;
+    *display: inline;
+	background-image:url(../images/clientLogin_btn.png);
+	border-right: none;
+	padding-left:21px;
+	padding-right:21px;
+	padding-top:10px;
+	color: #fff;
+	text-decoration: none;
+	line-height:32px;
+	height:32px;
+}
+
+#navPrimary li.last .client a:hover {
+	color:#000;
+}
+
+
+#navPrimary li a:hover, #navPrimary li.current a{
+	color:#ef3e33;
+}
+
+#navPrimary li.current li a{
+	color:#000;
+}
+
+
+/* Primary Dropdown
+===================================== */
+/* http://www.htmldog.com/articles/suckerfish/dropdowns/ */
+
+#navPrimary li ul { /* second-level lists */
+	position: absolute;
+	left: -999em;
+	z-index: 5000;
+	width: 270px;
+	margin: 0;
+	padding-left: 0;
+	list-style: none;
+	background: #fff;
+	border-top: none;
+	border-bottom: 1px solid #d2d2d2;
+	border-right: 1px solid #d2d2d2;
+	border-left: 1px solid #d2d2d2;
+	
+	-moz-box-shadow: 2px 3px 4px #282828;
+	-webkit-box-shadow: 2px 3px 4px #282828;
+	box-shadow:2px 3px 4px #282828;
+	
+	
+	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#282828')";
+
+	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#282828');
+}
+
+#navPrimary li li { 
+	float: left;
+	margin: 0 !important;
+}
+
+#navPrimary li li a {
+	font-size:12px;
+	width: 200px;
+	display: block;
+	margin:0;
+	margin-left:15px;
+	margin-right:15px;
+	border-right: none;
+	padding-top:15px;
+	line-height:28px;
+	height:28px;
+	text-transform: none;
+	color:#000;
+	border-bottom: 1px solid #d2d2d2;
+}
+
+#navPrimary li li.last a {
+	border-bottom: none;
+}
+
+#navPrimary li li a:hover{
+	color:#ef3e33;
+}
+
+#navPrimary li:hover ul{ 
+	left: auto;
+}
+
+
+
+
+
+/* Hero Banner
+===================================== */
+
+#homeHero .bannercontainer{
+	max-width:910px;
+	height:390px;
+	position:relative;
+	margin-top:16px;
+	margin-left:40px;
+}
+
+#secondaryHero .bannercontainer{
+	max-width:910px;
+	height:216px;
+	position:relative;
+	margin-top:16px;
+	margin-left:40px;
+}
+.bannercontainer ul, .bannercontainer li{
+	list-style:none;
+	margin:0;
+	padding:0;
+}
+	
+.bannercontainer ul >li{
+	display:none;
+}
+
+.light .kenburn-bg{
+	padding:0;
+	border:none;
+}
+
+
+
+/*************************************************
+	-	THE PRELOADER OF THE BANNER 	-
+*************************************************/
+.kenburn-preloader{
+	background:url(../images/preloader.gif) no-repeat 50% 50%;
+	width:32px;
+	height:32px;
+	position:absolute;
+	left:50%;
+	top:50%;
+	z-index:9999;
+	background-color: #000;
+	border-radius: 5px; 
+	-moz-border-radius: 5px; 
+	-webkit-border-radius: 5px; 
+	padding: 10px;
+	margin-left: -14px;
+}
+
+
+/**********************************************************
+	-	CAPTION SETTINGS FOR THE SLIDER	-
+**********************************************************/	
+
+.kb-fullsize .cp-right, .kb-fullsize .cp-left, .kb-fullsize .cp-center{
+	color:#fff;
+	background:url(../images/black65.png);
+	position:absolute;			
+}
+
+.kb-fullsize .cp-right{ 
+	padding:30px 40px 30px 40px; 
+	top:0px;    
+	right:0px; 
+	height:100%; 
+	margin-right:60px;
+}
+
+.kb-fullsize .cp-left{ 
+	padding:30px 40px 30px 40px; 
+	top:0px;    
+	left:30px;  
+	height:100%; 
+}
+
+.kb-fullsize .cp-center{ 
+	padding:30px 40px 30px 40px; 
+	top:0px;    
+	left:300px;  
+	height:100%; 
+}
+
+.clear{
+	clear:both;
+}
+
+
+/**************************
+	-	BUTTONS	-
+***************************/
+
+.light .kb-button {
+ 	float: left;
+ 	height: 31px;
+ 	line-height: 30px;
+ 	font-size: 12px;
+ 	-webkit-border-radius: 3px;
+ 	-moz-border-radius: 3px;
+ 	border-radius:3px;
+}
+
+.light .kb-button:link, .light .kb-button:visited {
+ 	color: #333;
+ 	padding: 0 20px 0 20px;
+ 	text-align: center;
+ 	text-shadow: 0px 1px 0px #ccc;
+ 	background: url('../images/button_light.png') repeat-x center top; 
+ 	text-decoration: none;
+ 
+}
+
+.light .kb-button:hover, .light .comment-reply-link:hover {
+	background-position:bottom;
+	text-decoration: none;
+	color: #ef3e33;
+}
+
+
+/*************************************/
+/*		THUMBNAIL OPTIONS			*/
+/*************************************/
+.thumbbuttons{
+	margin:0;
+	padding:0;
+	position:absolute;
+	top:420px;
+	z-index:1000;
+}
+
+.thumbbuttons .minithumb{
+	background:url(../images/navigdots.png) no-Repeat top left;
+	width:15px;
+	height:15px;
+	margin-left:9px;	
+	float:left;
+	cursor:pointer;
+}
+
+.thumbbuttons .thumbs{
+	float:left;
+}
+
+.thumbbuttons .minithumb:hover, .thumbbuttons .thumbs .selected{
+	background-position:bottom left;
+}
+
+
+/* Content Wrapper
+===================================== */
+#contentWrapper{
+	margin:0 auto;
+	margin-top:40px;
+	width:900px;
+	min-height:300px !important;
+	
+	clear:both;
+	border-top: 1px solid #d2d2d2;
+}
+
+#contentWrapper.secondary{
+	margin-top:20px;
+}
+
+#leftColWide{
+	width:590px;
+	min-height:300px !important;
+	float:left;
+	padding-right:40px;
+}
+
+#leftColSide{
+	width:229px;
+	min-height:300px !important;
+	float:left;
+	padding-right:40px;
+}
+
+#fullCol{
+	width:900px;
+	min-height:300px !important;
+	float:left;
+	padding-right:40px;
+}
+
+#borderCol{
+	margin-top:20px;
+	width:1px;
+	float:left;
+	background-color:#d2d2d2;
+	padding-bottom:20px;
+}
+
+#rightColSide{
+	width:229px;
+	min-height:300px !important;
+	float:right;
+	padding-left:40px;
+	padding-bottom:20px;
+}
+
+#rightColWide{
+	width:590px;
+	min-height:300px !important;
+	float:right;
+	padding-left:40px;
+}
+
+#smallCol{
+	float:left;
+	width:178px;
+	margin-right:25px;
+}
+
+#smallCol.last{
+	margin-right:0;
+}
+
+.halfindent{
+	padding-left:50px;
+}
+
+.indent{
+	padding-left:100px;
+}
+
+.doubleindent{
+	padding-left:200px;
+}
+
+.tripleindent{
+	padding-left:300px;
+}
+
+.col{
+	float:left;
+}
+	
+/* Footer
+===================================== */
+
+#footerWrapper {
+	margin: 0 auto;
+	margin-top:80px;
+	padding-top:15px;
+	padding-bottom:30px;
+	clear:both;
+	width:900px;
+	border-top: 1px solid #d2d2d2;
+	text-align:center;
+}
+
+#footer{
+	
+	margin-left:80px;
+	text-align:center;
+	font-size: 12px;
+	color: #787878;
+}
+
+#footer ul, #footer li {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	float: left;
+}
+
+
+#footer li {
+	padding-left:15px;
+	padding-right:15px;
+}
+
+#footer li a, #footer a{
+	font-size: 12px;
+	color: #787878;
+	text-decoration: none;
+}
+
+#footer li a:hover, #footer a:hover{
+	color:#ef3e33;
+}
+
+/* @end Layout - Footer
+-------------------------------- */
+
+/* Breadcrumb
+===================================== */
+
+#breadcrumb{
+	font-size: 10px;
+	color: #787878;
+	clear:both;
+	margin-left:40px;
+	padding-top:10px;
+	padding-bottom:5px;
+}
+
+#breadcrumb ul, #breadcrumb li {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	float: left;
+}
+
+
+#breadcrumb li {
+	padding-left:5px;
+	padding-right:5px;
+}
+
+#breadcrumb li a, #breadcrumb a{
+	font-size: 10px;
+	color: #787878;
+	text-decoration: underline;
+}
+
+#breadcrumb li a:hover, #breadcrumb a:hover{
+	color:#ef3e33;
+}
+
+/* @end Layout - breadcrumb
+-------------------------------- */
+
+
+
+/* @group Nav - Secondary
+===================================== */
+
+#navSecondary ul, #navSecondary li{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	
+	font-size:12px;
+}
+
+#navSecondary ul{
+	margin-bottom:40px;
+}
+
+#navSecondary li {
+	list-style:none;
+	margin: 0;
+
+	border-bottom: 1px solid #d2d2d2;
+	
+	padding-top:13px;
+	padding-bottom:13px;
+	padding-left:20px;
+}
+
+#navSecondary.last {
+}
+
+#navSecondary li a {
+	color:#000000;
+	display: block;
+	text-decoration:none;
+}
+
+#navSecondary li a:hover {
+	color:#ef3e33;
+	text-decoration:none;
+}
+
+
+
+.redBox{
+	overflow: hidden;
+	margin-top:30px;
+	margin-bottom:30px;
+	padding: 20px;
+	color: #fff;
+	font-size:13px;
+
+	clear:both;
+	display:block;
+	
+	
+	/*Rounded Corners*/
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px; /* future proofing */
+	-khtml-border-radius: 10px; /* for old Konqueror browsers */
+	/*end Rounded Corners*/
+	
+	background-color:#ef3e33;
+	
+	/*Set Up the Gradient for Different Browsers*/
+	
+	/* Safari 4+, Chrome 1-9 */
+   	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#bd2319), to(#ef3e33));
+
+   	/* Safari 5.1+, Mobile Safari, Chrome 10+ */
+   	background-image: -webkit-linear-gradient(top, #bd2319, #ef3e33); 
+
+   	/* Firefox 3.6+ */
+  	 background-image: -moz-linear-gradient(top, #bd2319, #ef3e33);
+
+   	/* IE 10+ */
+   	background-image: -ms-linear-gradient(top, #bd2319, #ef3e33);
+	
+	/* For Internet Explorer 5.5 - 7 */
+	filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=#bd2319, endColorstr=#ef3e33);
+	
+	/* For Internet Explorer 8 */
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient (GradientType=0, startColorstr=#bd2319, endColorstr=#ef3e33)";
+	
+	
+	background-image:-webkit-gradient(linear, 0 0, 0 100%,
+		color-stop(0, #bd2319),
+		/*color-stop(0.05, #ef3e33),*/
+		color-stop(1, #ef3e33));
+}
+
+
+/*RSS FEED*/
+.mydate{
+	font-size:11px;
+	color:#878787;
+}
+
+#rssFeedWrapper ul, #rssFeedMain ul { 
+	list-style: none; 
+	margin: 0;
+	padding: 0;
+}
+
+#rssFeedWrapper li{
+	margin-bottom:30px;
+}
+
+
+

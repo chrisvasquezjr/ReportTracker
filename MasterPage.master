@@ -1,0 +1,279 @@
+﻿<%@ Master Language="VB" CodeFile="MasterPage.master.vb" Inherits="secure_MasterPage" %>
+<!doctype html>
+
+<!--[if lt IE 7]> <html class="lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en"> <!--<![endif]-->
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>OutSolve Client Portal</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+	<link rel="Shortcut Icon" href="/favicon.ico">
+	<link rel="apple-touch-icon" sizes="57x57" href="/touch-icon-iphone-114.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="/touch-icon-iphone-114.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="/touch-icon-ipad-144.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="/touch-icon-ipad-144.png">
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/jquery.validate.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/additional-methods.js"></script>
+	<script src="/ui/build/js/pass.js"></script>
+	
+	<link rel="stylesheet" href="/ui/build/css/styles.css">
+	<link rel="stylesheet" href="/ui/build/css/navstyles.css">
+	<link rel="stylesheet" href="/ui/build/css/dashstyles.css">
+	
+	<!--[if (lt IE 9) & (!IEMobile)]><link rel="stylesheet" href="/ui/build/css/ie.css"><![endif]-->
+	<!-- html5shiv.js allows us to use HTML5 tags in legacy versions of Internet Explorer
+	     respond.js allows us to use media queries in legacy versions of Internet Explorer -->
+	<!--[if lt IE 9]>
+	<script src="ui/vendor/js/html5shiv.js"></script>
+	<script src="ui/vendor/js/respond.js"></script>
+	<![endif]-->
+
+	<!-- Typekit webfonts embed -->
+	<script type="text/javascript" src="https://use.typekit.net/zyn8nrp.js"></script>
+	<script type="text/javascript">try{Typekit.load({ async: true });}catch(e){}</script>
+	<script src="CalendarPopup.js"></script>
+	
+</head>
+
+<body>
+<script>
+	var bdy = document.getElementsByTagName('body');
+	bdy[0].className = 'js';
+</script>
+
+<div id="top"></div>
+
+<div id="site" class="clientPortal">
+
+	<div id="page">
+		<div id="cssmenu" class="inner">
+			<ul>
+			<%
+				Dim tmpWebUser As outsolve_web.WebUser
+				tmpWebUser = Session("user")
+			%>
+
+			<% if Session("userType") < 8 then %>
+				<li><a href='default.aspx'><img src="images1/outsolve.png" alt="" style="align-content: center;"></a></li>
+                 <li><a href='default.aspx'><img src="images1/home.png" alt="" style="align-content: center;"></a></li>
+				<li class='has-sub'>
+					<a href='#'><img src="images1/dashboard.png" alt="" style="align-content: center;"></a>
+					<ul>
+						<li><a href='ComplianceDashboard.aspx'><span>AAP Dashboard</span></a></li>
+						<li><a href='EmployeeSnapshot.aspx'><span>Employee Snapshot</span></a></li>
+						<li><a href='Availabilities.aspx'><span>Employment vs Availability</span></a></li>
+						<li><a href='AppsHires.aspx'><span>Apps vs Hires</span></a></li>
+						<li><a href='ProgressToGoal.aspx'><span>Progress to Goals</span></a></li>
+						<li><a href='AdverseImpact.aspx'><span>Adverse Impact</span></a></li>
+						<li><a href='Disabilities.aspx'><span>Individuals with Disabilities</span></a></li>
+						<li><a href='VeteranHiring.aspx'><span>Veteran Hiring Benchmark</span></a></li>
+						<li><a href='ComplianceMap.aspx'><span>Compliance Map</span></a></li>
+						<li><a href='SelectionMap.aspx'><span>Selection Map</span></a></li>
+						<li><a href='OutreachSummary.aspx'><span>Outreach Tracker</span></a></li>
+					</ul>
+				</li>
+				<li class='has-sub'>
+					<a href='#'><img src="images1/diversitydashboard.png" alt="" style="align-content: center;"></a>
+					<ul>
+						<li><a href='DiversityDashboard.aspx'><span>DE&I Dashboard</span></a></li>
+						<li><a href='demographics.aspx'><span>Demographics</span></a></li>
+						<li><a href='PrioritiesActions.aspx'><span>Priorities & Actions</span></a></li>
+						<li><a href='scorecard.aspx'><span>Scorecard</span></a></li>
+						<li><a href='EmployeeSurvey.aspx'><span>Survey Results</span></a></li>
+						<li><a href='DiversityResources.aspx'><span>DE&I Resources</span></a></li>
+					</ul>
+				</li>
+				<li><a href='upload-data.aspx'><img src="images1/upload.png" alt="" style="align-content: center;"></a></li>
+				<li><a href='reports.aspx'><img src="images1/reports.png" alt="" style="align-content: center;"></a></li>
+				<li><a href='resources.aspx'><img src="images1/compliance.png" alt="" style="align-content: center;"></a></li>
+				<li><a href='training.aspx'><img src="images1/training.png" alt="" style="align-content: center;"></a></li>
+				<li class='has-sub'>
+					<a href='#'><img src="images1/settings.png" alt="" style="align-content: center;"></a>
+					<ul>
+						<li><a href='/editinfo.aspx'><span>Edit My Info</span></a></li>
+						<li><a href='/logout.aspx'><span>Logout</span></a></li>
+					</ul>
+				</li>
+				
+				
+			<% elseif Session("userType") = 8 then %>
+				<li><a href='default.aspx'><img src="images1/outsolve.png" alt="" style="align-content: center;"></a></li>
+				<li class='has-sub'>
+					<a href='#'><img src="images1/home.png" alt="" style="align-content: center;"></a>
+					<ul>
+						<li><a href='<% HttpContext.Current.Response.Write(System.Configuration.ConfigurationManager.AppSettings("SecureSite"))%>/statssummary.aspx'>
+						<span>Web Stats</span></a></li>
+						<li><a href='<% HttpContext.Current.Response.Write(System.Configuration.ConfigurationManager.AppSettings("SecureSite"))%>/statssummary.aspx?stype=1'>
+						<span>Browser Stats</span></a></li>
+						<li><a href='<% HttpContext.Current.Response.Write(System.Configuration.ConfigurationManager.AppSettings("SecureSite"))%>/statssummary.aspx?stype=2'>
+						<span>User Stats</span></a></li>
+						<li><a href='<% HttpContext.Current.Response.Write(System.Configuration.ConfigurationManager.AppSettings("SecureSite"))%>/statssummary.aspx?stype=5'>
+						<span>User Tracker</span></a></li>
+						<li><a href='<% HttpContext.Current.Response.Write(System.Configuration.ConfigurationManager.AppSettings("SecureSite"))%>/statssummary.aspx?stype=3'>
+						<span>Page Stats</span></a></li>
+						<li><a href='<% HttpContext.Current.Response.Write(System.Configuration.ConfigurationManager.AppSettings("SecureSite"))%>/statssummary.aspx?stype=4'>
+						<span>Failed Logins</span></a></li>
+					</ul>
+				</li>
+				
+				<li class='has-sub'>
+					
+					<a href='#'><img src="/images1/dashboard.png" alt="" style="align-content: center;"></a>
+					<ul>
+						<li><a href='ComplianceDashboard.aspx'><span>AAP Dashboard</span></a></li>
+						<li><a href='EmployeeSnapshot.aspx'><span>Employee Snapshot</span></a></li>
+						<li><a href='Availabilities.aspx'><span>Employment vs Availability</span></a></li>
+						<li><a href='AppsHires.aspx'><span>Apps vs Hires</span></a></li>
+						<li><a href='ProgressToGoal.aspx'><span>Progress to Goals</span></a></li>
+						<li><a href='AdverseImpact.aspx'><span>Adverse Impact</span></a></li>
+						<li><a href='Disabilities.aspx'><span>Individuals with Disabilities</span></a></li>
+						<li><a href='VeteranHiring.aspx'><span>Veteran Hiring Benchmark</span></a></li>
+						<li><a href='ComplianceMap.aspx'><span>Compliance Map</span></a></li>
+						<li><a href='SelectionMap.aspx'><span>Selection Map</span></a></li>
+					</ul>
+				</li>
+				<li class='has-sub'>
+					<a href='#'><img src="/images1/diversitydashboard.png" alt="" style="align-content: center;"></a>
+					<ul>
+						<li><a href='DiversityDashboard.aspx'><span>DE&I Dashboard</span></a></li>
+						<li><a href='demographics.aspx'><span>Demographics</span></a></li>
+						<li><a href='PrioritiesActions.aspx'><span>Priorities & Actions</span></a></li>
+						<li><a href='scorecard.aspx'><span>Scorecard</span></a></li>
+						<li><a href='EmployeeSurvey.aspx'><span>Survey Results</span></a></li>
+						<li><a href='DiversityResources.aspx'><span>DE&I Resources</span></a></li>
+					</ul>
+				</li>
+				<li><a href='<% HttpContext.Current.Response.Write(System.Configuration.ConfigurationManager.AppSettings("SecureSite"))%>/userMaint.aspx'><img src="images1/useredit.png" alt="" style="align-content: center;"></a></li>
+				
+				<li class='has-sub'>
+					<a href='#'><img src="images1/reports.png" alt="" style="align-content: center;"></a>
+					<ul>
+						<li><a href='<% HttpContext.Current.Response.Write(System.Configuration.ConfigurationManager.AppSettings("SecureSite"))%>/reports.aspx'><span>Report Maint</span></a></li>
+						<li><a href='<%HttpContext.Current.Response.Write(System.Configuration.ConfigurationManager.AppSettings("SecureSite"))%>/reportsEdit.aspx?id=-1&catid=1'><span>Upload Report</span></a></li>
+					</ul>
+				</li>
+					
+				<li><a href='<%HttpContext.Current.Response.Write(System.Configuration.ConfigurationManager.AppSettings("SecureSite"))%>/uploadmaint.aspx'><img src="images1/upload.png" alt="" style="align-content: center;"></a></li>
+				
+				<li class='has-sub'>
+					<a href='#'><img src="images1/settings.png" alt="" style="align-content: center;"></a>
+					<ul>
+						<li><a href='/editinfo.aspx'><span>Edit My Info</span></a></li>
+						<li><a href='/logout.aspx'><span>Logout</span></a></li>
+					</ul>
+				</li>
+
+			<%elseif Session("userType") = 10 then %>
+				<li><a href='default.aspx'><img src="images1/outsolve.png" alt="" style="align-content: center;"></a></li>
+				<li class='has-sub'>
+					<a href='#'><img src="images1/home.png" alt="" style="align-content: center;"></a>
+					<ul>
+						<li><a href='<% HttpContext.Current.Response.Write(System.Configuration.ConfigurationManager.AppSettings("SecureSite"))%>/statssummary.aspx'>
+						<span>Web Stats</span></a></li>
+						<li><a href='<% HttpContext.Current.Response.Write(System.Configuration.ConfigurationManager.AppSettings("SecureSite"))%>/statssummary.aspx?stype=1'>
+						<span>Browser Stats</span></a></li>
+						<li><a href='<% HttpContext.Current.Response.Write(System.Configuration.ConfigurationManager.AppSettings("SecureSite"))%>/statssummary.aspx?stype=2'>
+						<span>User Stats</span></a></li>
+						<li><a href='<% HttpContext.Current.Response.Write(System.Configuration.ConfigurationManager.AppSettings("SecureSite"))%>/statssummary.aspx?stype=5'>
+						<span>User Tracker</span></a></li>
+						<li><a href='<% HttpContext.Current.Response.Write(System.Configuration.ConfigurationManager.AppSettings("SecureSite"))%>/statssummary.aspx?stype=3'>
+						<span>Page Stats</span></a></li>
+						<li><a href='<% HttpContext.Current.Response.Write(System.Configuration.ConfigurationManager.AppSettings("SecureSite"))%>/statssummary.aspx?stype=4'>
+						<span>Failed Logins</span></a></li>
+					</ul>
+				</li>
+				
+				<li class='has-sub'>
+					<a href='#'><img src="images1/dashboard.png" alt="" style="align-content: center;"></a>
+					<ul>
+						<li><a href='ComplianceDashboard.aspx'><span>AAP Dashboard</span></a></li>
+						<li><a href='EmployeeSnapshot.aspx'><span>Employee Snapshot</span></a></li>
+						<li><a href='Availabilities.aspx'><span>Employment vs Availability</span></a></li>
+						<li><a href='AppsHires.aspx'><span>Apps vs Hires</span></a></li>
+						<li><a href='ProgressToGoal.aspx'><span>Progress to Goals</span></a></li>
+						<li><a href='AdverseImpact.aspx'><span>Adverse Impact</span></a></li>
+						<li><a href='Disabilities.aspx'><span>Individuals with Disabilities</span></a></li>
+						<li><a href='VeteranHiring.aspx'><span>Veteran Hiring Benchmark</span></a></li>
+						<li><a href='ComplianceMap.aspx'><span>Compliance Map</span></a></li>
+						<li><a href='SelectionMap.aspx'><span>Selection Map</span></a></li>
+					</ul>
+				</li>
+				<li class='has-sub'>
+					<a href='#'><img src="images1/diversitydashboard.png" alt="" style="align-content: center;"></a>
+					<ul>
+						<li><a href='DiversityDashboard.aspx'><span>DE&I Dashboard</span></a></li>
+						<li><a href='demographics.aspx'><span>Demographics</span></a></li>
+						<li><a href='PrioritiesActions.aspx'><span>Priorities & Actions</span></a></li>
+						<li><a href='scorecard.aspx'><span>Scorecard</span></a></li>
+						<li><a href='EmployeeSurvey.aspx'><span>Survey Results</span></a></li>
+						<li><a href='DiversityResources.aspx'><span>DE&I Resources</span></a></li>
+					</ul>
+				</li>
+				<li><a href='<% HttpContext.Current.Response.Write(System.Configuration.ConfigurationManager.AppSettings("SecureSite"))%>/userMaint.aspx'><img src="images1/useredit.png" alt="" style="align-content: center;"></a></li>
+				
+				<li class='has-sub'>
+					<a href='#'><img src="images1/reports.png" alt="" style="align-content: center;"></a>
+					<ul>
+						<li><a href='<% HttpContext.Current.Response.Write(System.Configuration.ConfigurationManager.AppSettings("SecureSite"))%>/downloads.aspx'><span>Download Maint</span></a></li>
+						<li><a href='<% HttpContext.Current.Response.Write(System.Configuration.ConfigurationManager.AppSettings("SecureSite"))%>/reports.aspx'><span>Report Maint</span></a></li>
+						<li><a href='<%HttpContext.Current.Response.Write(System.Configuration.ConfigurationManager.AppSettings("SecureSite"))%>/reportsEdit.aspx?id=-1&catid=1'><span>Upload Report</span></a></li>
+					</ul>
+				</li>
+					
+				<li><a href='<%HttpContext.Current.Response.Write(System.Configuration.ConfigurationManager.AppSettings("SecureSite"))%>/uploadmaint.aspx'><img src="images1/upload.png" alt="" style="align-content: center;"></a></li>
+				<li class='has-sub'>
+					<a href='#'><img src="images1/training.png" alt="" style="align-content: center;"></a>
+					<ul>
+						<li><a href='<%HttpContext.Current.Response.Write(System.Configuration.ConfigurationManager.AppSettings("SecureSite"))%>/webinarMaint.aspx'><span>Webinar Maint</span></a></li>
+						<li><a href='<%HttpContext.Current.Response.Write(System.Configuration.ConfigurationManager.AppSettings("SecureSite"))%>/reminderMaint.aspx'><span>Reminder Maint</span></a></li>
+						<li><a href='<%HttpContext.Current.Response.Write(System.Configuration.ConfigurationManager.AppSettings("SecureSite"))%>/faq.aspx'><span>FAQ Maint</span></a></li>
+					</ul>
+				</li>
+				
+				<li class='has-sub'>
+					<a href='#'><img src="images1/settings.png" alt="" style="align-content: center;"></a>
+					<ul>
+						<li><a href='/editinfo.aspx'><span>Edit My Info</span></a></li>
+						<li><a href='/logout.aspx'><span>Logout</span></a></li>
+					</ul>
+				</li>
+
+			<% end if%>
+			
+			</ul>
+		</div>
+
+		<main id="content" class="content" >
+			<asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+			</asp:ContentPlaceHolder>
+			<br/>
+			<div id="footer" >
+				<p><span>
+				Copyright &copy; <%= Format(Now(), "yyyy") %> OutSolve.</span> <span>All Rights Reserved. | <a href="https://outsolve.com/privacy-policy">Privacy Policy</a> | <a href="https://outsolve.com/privacy-policy#California">CA Privacy Policy</a>
+				</span></p>
+			</div>
+		</main>
+
+		<!--<footer class="footer" id="fineprint">
+			<div class="footer-in">
+				<p class="copyright"><span>Copyright &copy; <%= Format(Now(), "yyyy") %> OutSolve.</span> <span>All Rights Reserved.</span></p>
+				<p class="goto"><a href="http://outsolve.com">Go to OutSolve.com</a></p>
+			</div>
+		</footer>-->
+
+	</div>
+
+</div> 
+
+<script src="/ui/build/js/app.min.js"></script>
+<!-- Client Portal javascript goes here. -->
+
+</body>
+</html>

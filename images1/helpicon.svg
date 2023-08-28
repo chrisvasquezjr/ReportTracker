@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="28px" height="28px" viewBox="0 0 28 28" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>help icon</title>
+    <defs>
+        <polygon id="path-1" points="0 0 28 0 28 28 0 28"></polygon>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Dashboard-landing-page" transform="translate(-22.000000, -504.000000)">
+            <g id="help-icon" transform="translate(22.000000, 504.000000)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <g id="Clip-2"></g>
+                <path d="M18.298,12.95 L17.038,14.238 C16.03,15.26 15.4,16.1 15.4,18.2 L12.6,18.2 L12.6,17.5 C12.6,15.96 13.23,14.56 14.238,13.538 L15.974,11.774 C16.492,11.27 16.8,10.57 16.8,9.8 C16.8,8.26 15.5386,7 14,7 C12.46,7 11.2,8.26 11.2,9.8 L8.4,9.8 C8.4,6.706 10.906,4.2 14,4.2 C17.094,4.2 19.6,6.706 19.6,9.8 C19.6,11.032 19.0946,12.152 18.298,12.95 L18.298,12.95 Z M12.6,23.8 L15.4,23.8 L15.4,21 L12.6,21 L12.6,23.8 Z M14,0 C6.272,0 0,6.272 0,14 C0,21.728 6.272,28 14,28 C21.7266,28 28,21.728 28,14 C28,6.272 21.7266,0 14,0 L14,0 Z" id="Fill-1" fill="#FFFFFF" mask="url(#mask-2)"></path>
+            </g>
+        </g>
+    </g>
+</svg>
